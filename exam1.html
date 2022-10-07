@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="firstquestion()">
+    <div id="res"></div>
+    <div id="res1"></div>
+    <div id="res2"></div>
+    <div id="res3"></div>
+    <div id="res4"></div>
+    <div class="column">
+        <button onclick="nextquestion()">Save and Next</button>
+        <button onclick="previousquestion()">previous question</button>
+        <button onclick="clearoption()">clear option</button>
+        <button onsubmit="endexam()">Submit</button>
+    </div>
+    <script>
+
+        var i = 0;
+        var question = [" Two equal capacitors are first connected in series and then in parallel. The ratio of the equivalent capacities in the two cases will be", "The gas evolved due to anaerobic degradation of vegetation causes:", " Let a, b∈R. If the mirror image of the point P(a, 6, 9) with respect to the line (x - 3)/7 = (y - 2)/5 = (z - 1)/(-9) is (20, b, -a, -9), then |a + b| is equal to:"]
+        var option1 = ["a. 1:3", "a. Acid rain", "a. 86"]
+        var option2 = ["b. 1:4", "b. Acid rain", "b. 88"]
+        var option3 = ["c. 4:1", "c. Ozone hole", "c. 84"]
+        var option4 = ["d. 1:2 ", "d. Metal corrosion", "d. 90"]
+        var solution = ["b", "a", "b"]
+        var temp = "<h2>" + question[i] + "</h2>";
+                var temp2 = "<input type='radio' id = 'opt1'>" + option2[i] + "</input>"
+                var temp3 = "<input type='radio' id = 'opt2'>" + option3[i] + "</input>"
+                var temp1 = "<input type='radio' id = 'opt3'>" + option1[i] + "</input>"
+                var temp4 = "<input type='radio' id = 'opt4'>" + option4[i] + "</input>"
+                document.getElementById("res").innerHTML = temp;
+                document.getElementById("res1").innerHTML = temp1;
+                document.getElementById("res2").innerHTML = temp2;
+                document.getElementById("res3").innerHTML = temp3;
+                document.getElementById("res4").innerHTML = temp4;
+        function firstquestion() {
+            var temp = "<h2>" + question[i] + "</h2>";
+            var temp1 = "<input type='radio'>" + option1[i] + "</input>"
+            var temp2 = "<input type='radio'>" + option2[i] + "</input>"
+            var temp3 = "<input type='radio'>" + option3[i] + "</input>"
+            var temp4 = "<input type='radio'>" + option4[i] + "</input>"
+            document.getElementById("res").innerHTML = temp;
+            document.getElementById("res1").innerHTML = temp1;
+            document.getElementById("res2").innerHTML = temp2;
+            document.getElementById("res3").innerHTML = temp3;
+            document.getElementById("res4").innerHTML = temp4;
+
+        }
+        function nextquestion() {
+
+            if (i != (question.length - 1)) {
+                if (res1.unchecked&&res2.unchecked&&res3.unchecked&&res4.unchecked) {
+                    alert("you don't cick any answer")
+                    console.log(res1.checked);
+                    i++;   
+                } else {
+                    i++;
+                }
+
+                
+                var temp = "<h2>" + question[i] + "</h2>";
+                var temp2 = "<input type='radio' id = 'opt1'>" + option2[i] + "</input>"
+                var temp3 = "<input type='radio' id = 'opt2'>" + option3[i] + "</input>"
+                var temp1 = "<input type='radio' id = 'opt3'>" + option1[i] + "</input>"
+                var temp4 = "<input type='radio' id = 'opt4'>" + option4[i] + "</input>"
+                document.getElementById("res").innerHTML = temp;
+                document.getElementById("res1").innerHTML = temp1;
+                document.getElementById("res2").innerHTML = temp2;
+                document.getElementById("res3").innerHTML = temp3;
+                document.getElementById("res4").innerHTML = temp4;
+
+            }
+            else {
+                i = 0;
+                var temp = "<h2>" + question[i] + "</h2>";
+                var temp1 = "<input type='radio'>" + option1[i] + "</input>"
+                var temp2 = "<input type='radio'>" + option2[i] + "</input>"
+                var temp3 = "<input type='radio'>" + option3[i] + "</input>"
+                var temp4 = "<input type='radio'>" + option4[i] + "</input>"
+                document.getElementById("res").innerHTML = temp;
+                document.getElementById("res1").innerHTML = temp1;
+                document.getElementById("res2").innerHTML = temp2;
+                document.getElementById("res3").innerHTML = temp3;
+                document.getElementById("res4").innerHTML = temp4;
+
+            }
+        }
+        function previousquestion() {
+            if (i == 0) {
+                i = (question.length - 1);
+                var temp = "<h2>" + question[i] + "</h2>";
+                var temp1 = "<input type='radio'>" + option1[i] + "</input>"
+                var temp2 = "<input type='radio'>" + option2[i] + "</input>"
+                var temp3 = "<input type='radio'>" + option3[i] + "</input>"
+                var temp4 = "<input type='radio'>" + option4[i] + "</input>"
+                document.getElementById("res").innerHTML = temp;
+                document.getElementById("res1").innerHTML = temp1;
+                document.getElementById("res2").innerHTML = temp2;
+                document.getElementById("res3").innerHTML = temp3;
+                document.getElementById("res4").innerHTML = temp4;
+            } else {
+
+                i = (i - 1);
+                var temp = "<h2>" + question[i] + "</h2>";
+                var temp1 = "<input type='radio'>" + option1[i] + "</input>"
+                var temp2 = "<input type='radio'>" + option2[i] + "</input>"
+                var temp3 = "<input type='radio'>" + option3[i] + "</input>"
+                var temp4 = "<input type='radio'>" + option4[i] + "</input>"
+                document.getElementById("res").innerHTML = temp;
+                document.getElementById("res1").innerHTML = temp1;
+                document.getElementById("res2").innerHTML = temp2;
+                document.getElementById("res3").innerHTML = temp3;
+                document.getElementById("res4").innerHTML = temp4;
+            }
+           function clearoption(){
+               if(temp1.clicked){
+                   alert(temp1);
+               }
+           }
+        }
+    </script>
+</body>
+
+</html>

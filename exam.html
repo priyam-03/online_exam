@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="firstQuestion()">
+   
+    <h2 class="Question" id="Question"></h2>
+    <div id="exam">
+        <input type="radio" name="option" id="opt1">
+        <label for="opt1" id="ans1"></label><br>
+        <input type="radio" name="option" id="opt2">
+        <label for="opt2" id="ans2"></label><br>
+        <input type="radio" name="option" id="opt3">
+        <label for="opt3" id="ans3"></label><br>
+        <input type="radio" name="option" id="opt4">
+        <label for="opt4" id="ans4"></label><br>
+    </div>
+    <div class="column">
+        <button onclick="nextquestion()">Save and Next</button>
+        <button onclick="previousquestion()">previous question</button>
+        <button onclick="clearoption()">clear option</button>
+        <button onsubmit="endexam()">Submit</button>
+    </div>
+    <script>
+        var i = 0;
+        var question = [" Two equal capacitors are first connected in series and then in parallel. The ratio of the equivalent capacities in the two cases will be", "The gas evolved due to anaerobic degradation of vegetation causes:", " Let a, b∈R. If the mirror image of the point P(a, 6, 9) with respect to the line (x - 3)/7 = (y - 2)/5 = (z - 1)/(-9) is (20, b, -a, -9), then |a + b| is equal to:"]
+        var option1 = ["a. 1:3", "a. Acid rain", "a. 86"]
+        var option2 = ["b. 1:4", "b. Acid rain", "b. 88"]
+        var option3 = ["c. 4:1", "c. Ozone hole", "c. 84"]
+        var option4 = ["d. 1:2 ", "d. Metal corrosion", "d. 90"]
+        var solution = ["b", "a", "b"]
+        var q = document.getElementById("Question");
+        var ch1 = document.getElementById("ans1");
+        var ch2 = document.getElementById("ans2");
+        var ch3 = document.getElementById("ans3");
+        var ch4 = document.getElementById("ans4");
+        var c1 = document.getElementById("opt1");
+        var c2 = document.getElementById("opt2");
+        var c3 = document.getElementById("opt3");
+        var c4 = document.getElementById("opt4");
+        var c = [c1, c2, c3, c4];
+        var ch = [ch1, ch2, ch3, ch4];
+        var ans = [];
+
+        function firstQuestion() {
+            q.innerHTML = question[i];
+            ch1.innerHTML = option1[i];
+            ch2.innerHTML = option2[i];
+            ch3.innerHTML = option3[i];
+            ch4.innerHTML = option4[i];
+        }
+        function nextquestion() {
+            c1.checked = false;
+            c2.checked = false;
+            c3.checked = false;
+            c4.checked = false;
+            if (i != (question.length - 1)) {
+                if (c1.unchecked && c2.unchecked && c3.unchecked && c4.unchecked == false) {
+
+
+                    console.log("you did not mark any option , will you skip the question?");
+                    i++;
+
+
+                }
+                else {
+                    
+
+
+                       
+                    console.log(c[i].value);
+                    console.log(ch[i].innerText);
+                    ans.push(ch[i].innerText);
+                    console.log(ans[i]);
+                    i++;
+
+
+                }
+
+            } else {
+                i = 0;
+                console.log(c[i].value);
+                console.log(ch[i].innerText);
+                ans.push(ch[i].innerText);
+                console.log(ans[i]);
+
+            }
+
+            q.innerHTML = question[i];
+            ch1.innerHTML = option1[i];
+            ch2.innerHTML = option2[i];
+            ch3.innerHTML = option3[i];
+            ch4.innerHTML = option4[i];
+
+        }
+        console.log(ans);
+        function previousquestion() {
+            if (i == 0) {
+                i = (question.length - 1);
+            } else {
+
+                i = (i - 1);
+            }
+            q.innerHTML = question[i];
+            ch1.innerHTML = option1[i];
+            ch2.innerHTML = option2[i];
+            ch3.innerHTML = option3[i];
+            ch4.innerHTML = option4[i];
+
+        }
+        var a = document.getElementById("exam").innerHTML;
+        console.log(a[0]);
+
+        function clearoption() {
+            for (i = 0; i < question.length; i++) {
+                document.getElementById("opt1" | "opt2" | "opt3" | "opt4").checked = false;
+            }
+        }
+    //    function endexam(){
+    //     for(i=0;i<question.length;i++){
+    //     if () {
+
+    //     } else {
+
+    //     }
+    //         }
+    //    }
+    </script>
+
+</body>
+
+</html>
